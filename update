@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+# 1 in 10 times you use this workflow we try to update
+rand=$((1 + RANDOM % 10))
+if [ "$rand" -eq "5" ]; then
+  git pull 2>&1
+fi
