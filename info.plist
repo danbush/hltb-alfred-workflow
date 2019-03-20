@@ -364,6 +364,25 @@ print workflow.output</string>
 			<key>type</key>
 			<string>alfred.workflow.utility.filter</string>
 			<key>uid</key>
+			<string>1813BA54-2CBA-410F-B2AB-27CA4E3D3E76</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>inputstring</key>
+				<string>{query}</string>
+				<key>matchcasesensitive</key>
+				<true/>
+				<key>matchmode</key>
+				<integer>1</integer>
+				<key>matchstring</key>
+				<string>update!</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.filter</string>
+			<key>uid</key>
 			<string>85753215-C8BA-498A-92A9-8C219242E84A</string>
 			<key>version</key>
 			<integer>1</integer>
@@ -392,6 +411,13 @@ print workflow.output</string>
 	<string></string>
 	<key>uidata</key>
 	<dict>
+		<key>1813BA54-2CBA-410F-B2AB-27CA4E3D3E76</key>
+		<dict>
+			<key>xpos</key>
+			<integer>670</integer>
+			<key>ypos</key>
+			<integer>100</integer>
+		</dict>
 		<key>233D9B44-AF96-494C-B7F5-05976CA8F253</key>
 		<dict>
 			<key>xpos</key>
@@ -433,7 +459,7 @@ print workflow.output</string>
 		</dict>
 	</dict>
 	<key>version</key>
-	<string>1.3</string>
+	<string>1.3.1</string>
 	<key>webaddress</key>
 	<string>https://howlongtobeat.com/</string>
 </dict>
