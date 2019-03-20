@@ -364,7 +364,7 @@ print workflow.output</string>
 			<key>type</key>
 			<string>alfred.workflow.utility.filter</string>
 			<key>uid</key>
-			<string>1813BA54-2CBA-410F-B2AB-27CA4E3D3E76</string>
+			<string>A7A5198A-7BA7-4ECC-AB59-5F8CEBB032A5</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -411,13 +411,6 @@ print workflow.output</string>
 	<string></string>
 	<key>uidata</key>
 	<dict>
-		<key>1813BA54-2CBA-410F-B2AB-27CA4E3D3E76</key>
-		<dict>
-			<key>xpos</key>
-			<integer>670</integer>
-			<key>ypos</key>
-			<integer>100</integer>
-		</dict>
 		<key>233D9B44-AF96-494C-B7F5-05976CA8F253</key>
 		<dict>
 			<key>xpos</key>
@@ -446,6 +439,13 @@ print workflow.output</string>
 			<key>ypos</key>
 			<integer>80</integer>
 		</dict>
+		<key>A7A5198A-7BA7-4ECC-AB59-5F8CEBB032A5</key>
+		<dict>
+			<key>xpos</key>
+			<integer>650</integer>
+			<key>ypos</key>
+			<integer>80</integer>
+		</dict>
 		<key>BDA6722B-CA07-4163-914B-3E80415A3DEF</key>
 		<dict>
 			<key>colorindex</key>
@@ -459,7 +459,7 @@ print workflow.output</string>
 		</dict>
 	</dict>
 	<key>version</key>
-	<string>1.3.1</string>
+	<string>1.3.2</string>
 	<key>webaddress</key>
 	<string>https://howlongtobeat.com/</string>
 </dict>
