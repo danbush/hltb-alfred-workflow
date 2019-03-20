@@ -6,8 +6,31 @@
 	<string>com.danbush.hltb</string>
 	<key>connections</key>
 	<dict>
+		<key>8DD4AC75-AE5B-4303-A693-EA5D7299DD7F</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>F9696878-6118-4449-8408-1F212D3ED217</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 		<key>932D137E-9894-45D6-A929-1EF9B7EF29FE</key>
 		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>8DD4AC75-AE5B-4303-A693-EA5D7299DD7F</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
 			<dict>
 				<key>destinationuid</key>
 				<string>233D9B44-AF96-494C-B7F5-05976CA8F253</string>
@@ -30,6 +53,48 @@
 	<string>How Long to Beat</string>
 	<key>objects</key>
 	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>./update</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>F9696878-6118-4449-8408-1F212D3ED217</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>inputstring</key>
+				<string>{query}</string>
+				<key>matchcasesensitive</key>
+				<true/>
+				<key>matchmode</key>
+				<integer>0</integer>
+				<key>matchstring</key>
+				<string>update!</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.filter</string>
+			<key>uid</key>
+			<string>8DD4AC75-AE5B-4303-A693-EA5D7299DD7F</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
 		<dict>
 			<key>config</key>
 			<dict>
@@ -138,11 +203,20 @@ if game_image[3] != nil
   difficulty_9 = game_difficulties[8].join('').sub("&amp;#189;", ".5").sub("&lt;/div&gt;\n&lt;/div&gt; &lt;/div&gt;\n", "")
 end
 
-workflow.result
-      .title(game_names[0].join(''))
-      .subtitle(game_difficulty_labels[0].join('') + " - " + difficulty_1 + " | " + game_difficulty_labels[1].join('') + " - " + difficulty_2 + " | " + game_difficulty_labels[2].join('') + " - " + difficulty_3)
-      .icon(image_path_1)
-      .arg(game_id[0].join(''))
+if query == "update!"
+  workflow.result
+      .title("Hit enter to update the workflow")
+      .subtitle("This will pull the latest version from git. Any modifications will be overwritten.")
+      .arg("update!")
+end
+
+if difficulty_1 != nil
+  workflow.result
+        .title(game_names[0].join(''))
+        .subtitle(game_difficulty_labels[0].join('') + " - " + difficulty_1 + " | " + game_difficulty_labels[1].join('') + " - " + difficulty_2 + " | " + game_difficulty_labels[2].join('') + " - " + difficulty_3)
+        .icon(image_path_1)
+        .arg(game_id[0].join(''))
+end
 
 if difficulty_4 != nil
   workflow.result
@@ -210,7 +284,14 @@ print workflow.output</string>
 			<key>xpos</key>
 			<integer>350</integer>
 			<key>ypos</key>
-			<integer>80</integer>
+			<integer>150</integer>
+		</dict>
+		<key>8DD4AC75-AE5B-4303-A693-EA5D7299DD7F</key>
+		<dict>
+			<key>xpos</key>
+			<integer>340</integer>
+			<key>ypos</key>
+			<integer>50</integer>
 		</dict>
 		<key>932D137E-9894-45D6-A929-1EF9B7EF29FE</key>
 		<dict>
@@ -218,6 +299,13 @@ print workflow.output</string>
 			<integer>160</integer>
 			<key>ypos</key>
 			<integer>80</integer>
+		</dict>
+		<key>F9696878-6118-4449-8408-1F212D3ED217</key>
+		<dict>
+			<key>xpos</key>
+			<integer>440</integer>
+			<key>ypos</key>
+			<integer>30</integer>
 		</dict>
 	</dict>
 	<key>webaddress</key>
