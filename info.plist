@@ -149,6 +149,14 @@ difficulty_1 = ""
 difficulty_2 = ""
 difficulty_3 = ""
 
+game_image_1 = ""
+game_image_2 = ""
+game_image_3 = ""
+
+image_path_1 = ""
+image_path_2 = ""
+image_path_3 = ""
+
 params = { :page =&gt; "1", :queryString =&gt; query, :t =&gt; "games", :sorthead =&gt; "popular", :sortd =&gt; "Normal%20Order", :plat =&gt; "", :length_type =&gt; "main" }
 
 response =
@@ -165,8 +173,14 @@ game_difficulty_labels = response.scan(/&lt;div class="search_list_tidbit text_w
 game_difficulties = response.scan(/&lt;div class="search_list_tidbit center time_\d+"&gt;([^"]*)&lt;\/div&gt;/)
 
 game_image = response.scan(/&lt;img src="([^"]*)/)
-game_image_1 = game_image[0].join('')
-image_path_1 = "./images/" + "image" + game_id[0].join('').sub("\"&gt;?&lt;", "") + ".jpg"
+
+if game_image[0] != nil
+  game_image_1 = game_image[0].join('')
+  image_path_1 = "./images/" + "image" + game_id[0].join('').sub("\"&gt;?&lt;", "") + ".jpg"
+  open(image_path_1, 'wb') do |file|
+    file &lt;&lt; open(game_image_1).read
+  end
+end
 
 if game_image[1] != nil
   game_image_2 = game_image[1].join('')
@@ -183,13 +197,11 @@ if game_image[2] != nil
   end
 end
 
-open(image_path_1, 'wb') do |file|
-  file &lt;&lt; open(game_image_1).read
+if game_image[1] != nil
+  difficulty_1 = game_difficulties[0].join('').sub("&amp;#189;", ".5")
+  difficulty_2 = game_difficulties[1].join('').sub("&amp;#189;", ".5")
+  difficulty_3 = game_difficulties[2].join('').sub("&amp;#189;", ".5").sub("&lt;/div&gt;\n&lt;/div&gt; &lt;/div&gt;\n", "")
 end
-
-difficulty_1 = game_difficulties[0].join('').sub("&amp;#189;", ".5")
-difficulty_2 = game_difficulties[1].join('').sub("&amp;#189;", ".5")
-difficulty_3 = game_difficulties[2].join('').sub("&amp;#189;", ".5").sub("&lt;/div&gt;\n&lt;/div&gt; &lt;/div&gt;\n", "")
 
 if game_image[2] != nil
   difficulty_4 = game_difficulties[3].join('').sub("&amp;#189;", ".5")
@@ -208,32 +220,33 @@ if query == "update!"
       .title("Hit enter to update the workflow")
       .subtitle("This will pull the latest version from git. Any modifications will be overwritten.")
       .arg("update!")
-end
-
-if difficulty_1 != nil
+elsif difficulty_1 != ""
   workflow.result
         .title(game_names[0].join(''))
         .subtitle(game_difficulty_labels[0].join('') + " - " + difficulty_1 + " | " + game_difficulty_labels[1].join('') + " - " + difficulty_2 + " | " + game_difficulty_labels[2].join('') + " - " + difficulty_3)
         .icon(image_path_1)
         .arg(game_id[0].join(''))
-end
+  if difficulty_4 != nil
+    workflow.result
+          .title(game_names[1].join(''))
+          .subtitle(game_difficulty_labels[0].join('') + " - " + difficulty_4 + " | " + game_difficulty_labels[1].join('') + " - " + difficulty_5 + " | " + game_difficulty_labels[2].join('') + " - " + difficulty_6)
+          .icon(image_path_2)
+          .arg(game_id[1].join(''))
+  end
 
-if difficulty_4 != nil
+  if difficulty_7 != nil
+    workflow.result
+          .title(game_names[2].join(''))
+          .subtitle(game_difficulty_labels[0].join('') + " - " + difficulty_7 + " | " + game_difficulty_labels[1].join('') + " - " + difficulty_8 + " | " + game_difficulty_labels[2].join('') + " - " + difficulty_9)
+          .icon(image_path_3)
+          .arg(game_id[2].join(''))
+  end
+else
   workflow.result
-        .title(game_names[1].join(''))
-        .subtitle(game_difficulty_labels[0].join('') + " - " + difficulty_4 + " | " + game_difficulty_labels[1].join('') + " - " + difficulty_5 + " | " + game_difficulty_labels[2].join('') + " - " + difficulty_6)
-        .icon(image_path_2)
-        .arg(game_id[1].join(''))
+        .title("Waiting for a game name...")
+        .subtitle("Example: Doom")
+        .arg(query)
 end
-
-if difficulty_7 != nil
-  workflow.result
-        .title(game_names[2].join(''))
-        .subtitle(game_difficulty_labels[0].join('') + " - " + difficulty_7 + " | " + game_difficulty_labels[1].join('') + " - " + difficulty_8 + " | " + game_difficulty_labels[2].join('') + " - " + difficulty_9)
-        .icon(image_path_3)
-        .arg(game_id[2].join(''))
-end
-
 print workflow.output</string>
 				<key>scriptargtype</key>
 				<integer>0</integer>
