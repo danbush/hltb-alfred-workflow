@@ -197,19 +197,19 @@ if game_image[2] != nil
   end
 end
 
-if game_image[1] != nil
+if game_image[0] != nil
   difficulty_1 = game_difficulties[0].join('').sub("&amp;#189;", ".5")
   difficulty_2 = game_difficulties[1].join('').sub("&amp;#189;", ".5")
   difficulty_3 = game_difficulties[2].join('').sub("&amp;#189;", ".5").sub("&lt;/div&gt;\n&lt;/div&gt; &lt;/div&gt;\n", "")
 end
 
-if game_image[2] != nil
+if game_image[1] != nil
   difficulty_4 = game_difficulties[3].join('').sub("&amp;#189;", ".5")
   difficulty_5 = game_difficulties[4].join('').sub("&amp;#189;", ".5")
   difficulty_6 = game_difficulties[5].join('').sub("&amp;#189;", ".5").sub("&lt;/div&gt;\n&lt;/div&gt; &lt;/div&gt;\n", "")
 end
 
-if game_image[3] != nil
+if game_image[2] != nil
   difficulty_7 = game_difficulties[6].join('').sub("&amp;#189;", ".5")
   difficulty_8 = game_difficulties[7].join('').sub("&amp;#189;", ".5")
   difficulty_9 = game_difficulties[8].join('').sub("&amp;#189;", ".5").sub("&lt;/div&gt;\n&lt;/div&gt; &lt;/div&gt;\n", "")
