@@ -20,18 +20,7 @@
 			</dict>
 		</array>
 		<key>8DD4AC75-AE5B-4303-A693-EA5D7299DD7F</key>
-		<array>
-			<dict>
-				<key>destinationuid</key>
-				<string>F9696878-6118-4449-8408-1F212D3ED217</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-				<key>vitoclose</key>
-				<false/>
-			</dict>
-		</array>
+		<array/>
 		<key>932D137E-9894-45D6-A929-1EF9B7EF29FE</key>
 		<array>
 			<dict>
@@ -66,29 +55,6 @@
 	<string>How Long to Beat</string>
 	<key>objects</key>
 	<array>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>concurrently</key>
-				<false/>
-				<key>escaping</key>
-				<integer>102</integer>
-				<key>script</key>
-				<string>./update</string>
-				<key>scriptargtype</key>
-				<integer>1</integer>
-				<key>scriptfile</key>
-				<string></string>
-				<key>type</key>
-				<integer>0</integer>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.script</string>
-			<key>uid</key>
-			<string>F9696878-6118-4449-8408-1F212D3ED217</string>
-			<key>version</key>
-			<integer>2</integer>
-		</dict>
 		<dict>
 			<key>config</key>
 			<dict>
@@ -351,13 +317,6 @@ print workflow.output</string>
 			<integer>160</integer>
 			<key>ypos</key>
 			<integer>80</integer>
-		</dict>
-		<key>F9696878-6118-4449-8408-1F212D3ED217</key>
-		<dict>
-			<key>xpos</key>
-			<integer>440</integer>
-			<key>ypos</key>
-			<integer>30</integer>
 		</dict>
 	</dict>
 	<key>webaddress</key>
