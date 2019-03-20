@@ -117,7 +117,7 @@
 				<key>queuedelaymode</key>
 				<integer>2</integer>
 				<key>queuemode</key>
-				<integer>1</integer>
+				<integer>2</integer>
 				<key>runningsubtext</key>
 				<string>Let's see here...</string>
 				<key>script</key>
@@ -220,7 +220,7 @@ if query == "update!"
       .title("Hit enter to update the workflow")
       .subtitle("This will pull the latest version from git. Any modifications will be overwritten.")
       .arg("update!")
-elsif difficulty_1 != ""
+elsif game_names[0] != nil
   workflow.result
         .title(game_names[0].join(''))
         .subtitle(game_difficulty_labels[0].join('') + " - " + difficulty_1 + " | " + game_difficulty_labels[1].join('') + " - " + difficulty_2 + " | " + game_difficulty_labels[2].join('') + " - " + difficulty_3)
