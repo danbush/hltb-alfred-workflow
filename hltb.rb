@@ -76,21 +76,21 @@ if game_image[2] != nil
 end
 
 if game_image[0] != nil
-  difficulty_1 = game_difficulties[0].join('').sub("&#189;", ".5")
-  difficulty_2 = game_difficulties[1].join('').sub("&#189;", ".5")
-  difficulty_3 = game_difficulties[2].join('').sub("&#189;", ".5").sub("</div>\n</div> </div>\n", "")
+  difficulty_1 = game_difficulties[0].join('').sub("&#189;", ".5").sub("</div>", "")
+  difficulty_2 = game_difficulties[1].join('').sub("&#189;", ".5").sub("</div>", "")
+  difficulty_3 = game_difficulties[2].join('').sub("&#189;", ".5").sub("</div>\n</div> </div>\n", "").sub("</div>", "")
 end
 
 if game_image[1] != nil
-  difficulty_4 = game_difficulties[3].join('').sub("&#189;", ".5")
-  difficulty_5 = game_difficulties[4].join('').sub("&#189;", ".5")
-  difficulty_6 = game_difficulties[5].join('').sub("&#189;", ".5").sub("</div>\n</div> </div>\n", "")
+  difficulty_4 = game_difficulties[3].join('').sub("&#189;", ".5").sub("</div>", "")
+  difficulty_5 = game_difficulties[4].join('').sub("&#189;", ".5").sub("</div>", "")
+  difficulty_6 = game_difficulties[5].join('').sub("&#189;", ".5").sub("</div>\n</div> </div>\n", "").sub("</div>", "")
 end
 
 if game_image[2] != nil
-  difficulty_7 = game_difficulties[6].join('').sub("&#189;", ".5")
-  difficulty_8 = game_difficulties[7].join('').sub("&#189;", ".5")
-  difficulty_9 = game_difficulties[8].join('').sub("&#189;", ".5").sub("</div>\n</div> </div>\n", "")
+  difficulty_7 = game_difficulties[6].join('').sub("&#189;", ".5").sub("</div>", "")
+  difficulty_8 = game_difficulties[7].join('').sub("&#189;", ".5").sub("</div>", "")
+  difficulty_9 = game_difficulties[8].join('').sub("&#189;", ".5").sub("</div>\n</div> </div>\n", "").sub("</div>", "")
 end
 
 if query == "update!"
