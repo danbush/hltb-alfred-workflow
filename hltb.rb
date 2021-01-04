@@ -35,26 +35,26 @@ image_path_1 = ""
 image_path_2 = ""
 image_path_3 = ""
 
-params = { :page => "1", :queryString => query, :t => "games", :sorthead => "popular", :sortd => "Normal%20Order", :plat => "", :length_type => "main" }
+params = { :page => "1", :queryString => query, :t => "games", :sorthead => "popular", :sortd => "Normal%20Order", :plat => "", :length_type => "main", :length_min => "", :length_max => "", :detail => "" }
 
 response =
-  HTTParty.post("https://howlongtobeat.com/search_results.php",
+  HTTParty.post("https://howlongtobeat.com/search_results?page=1",
   :body => params
   )
 
-game_id = response.scan(/id=(\d{4,5}">\n<)/)
+game_id = (response.scan(/id=(\d{4,5})/))
 
-game_names = response.scan(/<a title="([^"]*)"/)
+game_names = response.scan(/aria-label="([^"]*)"/)
 
 game_difficulty_labels = response.scan(/<div class="search_list_tidbit text_white shadow_text">([^"]*)<\/div>/)
 
 game_difficulties = response.scan(/<div class="search_list_tidbit center time_\d+">([^"]*)<\/div>/)
 
-game_image = response.scan(/<img src="([^"]*)/)
+game_image = response.scan(/alt="Box Art" src="([^"]*)/)
 
 if game_image[0] != nil
   game_image_1 = game_image[0].join('')
-  image_path_1 = "./images/" + "image" + game_id[0].join('').sub("\">?<", "") + ".jpg"
+  image_path_1 = "./images/" + game_names[0].to_s.downcase.sub('aria-label="', '').sub('["','').sub('"]','').sub(' ', '_') + ".jpg"
   open(image_path_1, 'wb') do |file|
     file << open(game_image_1).read
   end
@@ -62,14 +62,14 @@ end
 
 if game_image[1] != nil
   game_image_2 = game_image[1].join('')
-  image_path_2 = "./images/" + "image" + game_id[1].join('').sub("\">?<", "") + ".jpg"
+  image_path_2 = "./images/" + game_names[1].to_s.downcase.sub('aria-label="', '').sub('["','').sub('"]','').sub(' ', '_') + ".jpg"
   open(image_path_2, 'wb') do |file|
     file << open(game_image_2).read
   end
 end
 if game_image[2] != nil
   game_image_3 = game_image[2].join('')
-  image_path_3 = "./images/" + "image" + game_id[2].join('').sub("\">?<", "") + ".jpg"
+  image_path_3 = "./images/" + game_names[2].to_s.downcase.sub('aria-label="', '').sub('["','').sub('"]','').sub(' ', '_') + ".jpg"
   open(image_path_3, 'wb') do |file|
     file << open(game_image_3).read
   end
