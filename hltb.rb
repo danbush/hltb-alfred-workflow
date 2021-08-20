@@ -53,7 +53,7 @@ game_difficulties = response.scan(/<div class="search_list_tidbit center time_\d
 game_image = response.scan(/alt="Box Art" src="([^"]*)/)
 
 if game_image[0] != nil
-  game_image_1 = game_image[0].join('')
+  game_image_1 = 'https://howlongtobeat.com' + game_image[0].join('')
   image_path_1 = "./images/" + game_names[0].to_s.downcase.sub('aria-label="', '').sub('["','').sub('"]','').sub(' ', '_') + ".jpg"
   open(image_path_1, 'wb') do |file|
     file << open(game_image_1).read
@@ -61,14 +61,14 @@ if game_image[0] != nil
 end
 
 if game_image[1] != nil
-  game_image_2 = game_image[1].join('')
+  game_image_2 = 'https://howlongtobeat.com' + game_image[1].join('')
   image_path_2 = "./images/" + game_names[1].to_s.downcase.sub('aria-label="', '').sub('["','').sub('"]','').sub(' ', '_') + ".jpg"
   open(image_path_2, 'wb') do |file|
     file << open(game_image_2).read
   end
 end
 if game_image[2] != nil
-  game_image_3 = game_image[2].join('')
+  game_image_3 = 'https://howlongtobeat.com' + game_image[2].join('')
   image_path_3 = "./images/" + game_names[2].to_s.downcase.sub('aria-label="', '').sub('["','').sub('"]','').sub(' ', '_') + ".jpg"
   open(image_path_3, 'wb') do |file|
     file << open(game_image_3).read
