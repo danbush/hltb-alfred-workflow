@@ -39,6 +39,10 @@ params = { :page => "1", :queryString => query, :t => "games", :sorthead => "pop
 
 response =
   HTTParty.post("https://howlongtobeat.com/search_results?page=1",
+  :headers => {
+      "User-Agent" => "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:90.0) Gecko/20100101 Firefox/90.0",
+      "Referer" => "https://howlongtobeat.com/"
+  },    
   :body => params
   )
 
