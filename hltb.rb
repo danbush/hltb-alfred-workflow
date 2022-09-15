@@ -46,7 +46,7 @@ response =
       "User-Agent" => "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:90.0) Gecko/20100101 Firefox/90.0",
       "Referer" => "https://howlongtobeat.com/"
   },    
-  :body => {"searchType":"games","searchTerms":["zelda"],"searchPage":1,"size":20,"searchOptions":{"games":{"userId":0,"platform":"","sortCategory":"popular","rangeCategory":"main","rangeTime":{"min":0,"max":0},"gameplay":{"perspective":"","flow":"","genre":""},"modifier":""},"users":{"sortCategory":"postcount"},"filter":"","sort":0,"randomizer":0}}.to_json
+  :body => {"searchType":"games","searchTerms":["#{query}"],"searchPage":1,"size":20,"searchOptions":{"games":{"userId":0,"platform":"","sortCategory":"popular","rangeCategory":"main","rangeTime":{"min":0,"max":0},"gameplay":{"perspective":"","flow":"","genre":""},"modifier":""},"users":{"sortCategory":"postcount"},"filter":"","sort":0,"randomizer":0}}.to_json
   )
   
 game_data = response["data"]
@@ -65,7 +65,7 @@ game_image = game_data.map { |h| h['game_image'] }
 
 if game_image[0] != nil
   game_image_1 = 'https://howlongtobeat.com/games/' + game_image[0]
-  image_path_1 = "./images/" + game_names[0].to_s.downcase.sub('aria-label="', '').sub('["','').sub('"]','').sub(' ', '_') + ".jpg"
+  image_path_1 = "./images/" + game_names[0].to_s.downcase + ".jpg"
   open(image_path_1, 'wb') do |file|
     file << open(game_image_1).read
   end
@@ -73,35 +73,41 @@ end
 
 if game_image[1] != nil
   game_image_2 = 'https://howlongtobeat.com/games/' + game_image[1]
-  image_path_2 = "./images/" + game_names[1].to_s.downcase.sub('aria-label="', '').sub('["','').sub('"]','').sub(' ', '_') + ".jpg"
+  image_path_2 = "./images/" + game_names[1].to_s.downcase + ".jpg"
   open(image_path_2, 'wb') do |file|
     file << open(game_image_2).read
   end
 end
 if game_image[2] != nil
   game_image_3 = 'https://howlongtobeat.com/games/' + game_image[2]
-  image_path_3 = "./images/" + game_names[2].to_s.downcase.sub('aria-label="', '').sub('["','').sub('"]','').sub(' ', '_') + ".jpg"
+  image_path_3 = "./images/" + game_names[2].to_s.downcase + ".jpg"
   open(image_path_3, 'wb') do |file|
     file << open(game_image_3).read
   end
 end
 
+def difficulty_conversion(raw)
+  raw_integer = raw.to_i
+  final_integer = raw_integer/60/60
+  return final_integer.to_s + " hours"
+end
+
 if game_image[0] != nil
-  difficulty_1 = game_difficulties[0]
-  difficulty_2 = game_difficulties[1]
-  difficulty_3 = game_difficulties[2]
+  difficulty_1 = difficulty_conversion(game_difficulties_main[0])
+  difficulty_2 = difficulty_conversion(game_difficulties_extra[0])
+  difficulty_3 = difficulty_conversion(game_difficulties_complete[0])
 end
 
 if game_image[1] != nil
-  difficulty_4 = game_difficulties[3]
-  difficulty_5 = game_difficulties[4]
-  difficulty_6 = game_difficulties[5]
+  difficulty_4 = difficulty_conversion(game_difficulties_main[1])
+  difficulty_5 = difficulty_conversion(game_difficulties_extra[1])
+  difficulty_6 = difficulty_conversion(game_difficulties_complete[1])
 end
 
 if game_image[2] != nil
-  difficulty_7 = game_difficulties[6]
-  difficulty_8 = game_difficulties[7]
-  difficulty_9 = game_difficulties[8]
+  difficulty_7 = difficulty_conversion(game_difficulties_main[2])
+  difficulty_8 = difficulty_conversion(game_difficulties_extra[2])
+  difficulty_9 = difficulty_conversion(game_difficulties_complete[2])
 end
 
 if query == "update!"
